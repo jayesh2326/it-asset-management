@@ -16,6 +16,7 @@ const tones = {
 };
 
 export function Badge({
+  
   value,
   children
 }: {
