@@ -1,0 +1,91 @@
+body {
+font-family: Arial, sans-serif;
+background: #f4f6f9;
+margin: 0;
+padding: 0;
+}
+
+/* Header */
+h1 {
+background: #2c3e50;
+color: white;
+padding: 15px;
+margin: 0;
+}
+
+/* Container */
+section {
+background: white;
+margin: 20px;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Form */
+form {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 15px;
+}
+
+form input, form select {
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+}
+
+/* Button */
+button {
+background: #3498db;
+color: white;
+border: none;
+padding: 10px;
+border-radius: 5px;
+cursor: pointer;
+}
+
+button:hover {
+background: #2980b9;
+}
+
+/* Table */
+table {
+border-collapse: collapse;
+width: 100%;
+margin-top: 10px;
+}
+
+thead {
+background: #34495e;
+color: white;
+}
+
+th, td {
+padding: 12px;
+text-align: left;
+}
+
+tr:nth-child(even) {
+background: #f2f2f2;
+}
+
+/* Status badge */
+.status {
+padding: 5px 10px;
+border-radius: 20px;
+color: white;
+font-size: 12px;
+}
+
+.in_stock {
+background: #27ae60;
+}
+
+.assigned {
+background: #e67e22;
+}
+
+.repair {
+background: #c0392b;
+}

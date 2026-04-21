@@ -1,0 +1,7 @@
+project_id = "it-asset-manager"
+
+[functions.admin-invite-user]
+verify_jwt = true
+
+[functions.admin-update-user-role]
+verify_jwt = true

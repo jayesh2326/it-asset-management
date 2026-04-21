@@ -1,0 +1,48 @@
+
+> it-asset-manager@1.0.0 dev
+> vite --host 127.0.0.1 --port 5173
+
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m1075[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://127.0.0.1:[1m5173[22m/[39m
+[2m11:05:00 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css, /src/components/forms/asset-form-modal.tsx, /src/components/forms/return-asset-modal.tsx, /src/pages/login-page.tsx, /src/components/forms/employee-form-modal.tsx, /src/components/forms/assign-asset-modal.tsx, /src/components/forms/maintenance-modals.tsx, /src/components/forms/invite-user-modal.tsx[22m
+[2m11:06:10 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css, /src/hooks/use-auth.tsx, /src/pages/login-page.tsx, /src/pages/users-page.tsx, /src/pages/employees-page.tsx, /src/pages/maintenance-page.tsx, /src/pages/dashboard-page.tsx, /src/pages/employee-detail-page.tsx, /src/pages/assets-page.tsx, /src/pages/assignments-page.tsx, /src/pages/asset-detail-page.tsx[22m
+[2m11:06:10 pm[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/hooks/use-auth.tsx[22m Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m11:06:10 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/hooks/use-auth.tsx[22m
+[2m11:08:32 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/dashboard-page.tsx, /src/styles.css[22m
+[2m11:08:43 pm[22m [36m[1m[vite][22m[39m [32m✨ new dependencies optimized: [33mrecharts[32m[39m
+[2m11:08:43 pm[22m [36m[1m[vite][22m[39m [32m✨ optimized dependencies changed. reloading[39m
+[2m11:09:41 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css, /src/hooks/use-auth.tsx, /src/pages/login-page.tsx, /src/pages/users-page.tsx, /src/pages/employees-page.tsx, /src/pages/maintenance-page.tsx, /src/pages/dashboard-page.tsx, /src/pages/employee-detail-page.tsx, /src/pages/assets-page.tsx, /src/pages/assignments-page.tsx, /src/pages/asset-detail-page.tsx[22m
+[2m11:09:41 pm[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/hooks/use-auth.tsx[22m Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m11:09:41 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/hooks/use-auth.tsx[22m
+[2m11:27:23 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mindex.html[22m
+[2m11:27:23 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.tsx[22m
+[2m11:32:18 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m11:35:10 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/common/card.tsx, /src/styles.css[22m
+[2m11:35:11 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/common/button.tsx, /src/styles.css[22m
+[2m11:35:11 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/common/badge.tsx, /src/styles.css[22m
+[2m11:35:11 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/common/modal.tsx, /src/styles.css[22m
+[2m11:35:11 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/common/fields.tsx, /src/styles.css[22m
+[2m11:35:11 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/common/page-header.tsx, /src/styles.css[22m
+[2m11:35:11 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/dashboard/stat-card.tsx, /src/styles.css[22m
+[2m11:35:11 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/tables/data-table.tsx, /src/styles.css[22m
+[2m11:35:11 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/hooks/use-toast.tsx, /src/styles.css[22m
+[2m11:35:11 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/layout/app-shell.tsx, /src/styles.css[22m
+[2m11:35:11 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/login-page.tsx, /src/styles.css[22m
+[2m11:35:11 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css, /src/hooks/use-auth.tsx, /src/pages/login-page.tsx, /src/pages/users-page.tsx, /src/pages/employees-page.tsx, /src/pages/maintenance-page.tsx, /src/pages/dashboard-page.tsx, /src/pages/employee-detail-page.tsx, /src/pages/assets-page.tsx, /src/pages/assignments-page.tsx, /src/pages/asset-detail-page.tsx[22m
+[2m11:35:11 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/common/empty-state.tsx, /src/styles.css[22m
+[2m11:35:11 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/common/loading-screen.tsx, /src/styles.css[22m
+[2m11:35:11 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/components/common/theme-toggle.tsx[22m
+[2m11:35:11 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/dashboard/chart-card.tsx, /src/styles.css[22m
+[2m11:35:11 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/dashboard/chart-tooltip.tsx, /src/styles.css[22m
+[2m11:35:11 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/dashboard/dashboard-filters.tsx, /src/styles.css[22m
+[2m11:35:11 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/not-found-page.tsx, /src/styles.css[22m
+[2m11:36:01 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/dashboard-page.tsx, /src/styles.css[22m
+[2m11:37:21 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/common/theme-toggle.tsx, /src/styles.css[22m
+[2m11:37:21 pm[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/hooks/use-theme.tsx, /src/styles.css[22m
+[2m11:37:21 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/tests/component/login-page.test.tsx[22m
+[2m11:44:10 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/tests/component/login-page.test.tsx[22m
+[2m11:44:11 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/tests/component/login-page.test.tsx[22m
+[2m11:44:12 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/tests/component/login-page.test.tsx[22m
+[2m11:44:14 pm[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/tests/component/login-page.test.tsx[22m
