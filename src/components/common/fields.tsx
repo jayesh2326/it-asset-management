@@ -33,7 +33,7 @@ export const Input = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputE
       ref={ref}
       {...props}
       className={cn(
-        "h-11 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-elevated)] px-3 text-sm text-[var(--text-primary)] outline-none ring-0 transition placeholder:text-[var(--text-muted)] focus:border-[var(--border-strong)] focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]",
+        "h-11 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-elevated)] px-3 text-sm text-[var(--text-primary)] outline-none ring-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.02)] transition-all duration-200 placeholder:text-[var(--text-muted)] focus:border-[var(--accent-primary)] focus:shadow-[var(--shadow-glow-soft)] focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]",
         props.className
       )}
     />
@@ -49,7 +49,7 @@ export const Select = forwardRef<
     ref={ref}
     {...props}
     className={cn(
-      "h-11 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-elevated)] px-3 text-sm text-[var(--text-primary)] outline-none transition focus:border-[var(--border-strong)] focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]",
+      "h-11 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-elevated)] px-3 text-sm text-[var(--text-primary)] outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.02)] transition-all duration-200 focus:border-[var(--accent-primary)] focus:shadow-[var(--shadow-glow-soft)] focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]",
       props.className
     )}
   />
@@ -64,7 +64,7 @@ export const Textarea = forwardRef<
     ref={ref}
     {...props}
     className={cn(
-      "min-h-28 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-elevated)] px-3 py-2 text-sm text-[var(--text-primary)] outline-none transition placeholder:text-[var(--text-muted)] focus:border-[var(--border-strong)] focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]",
+      "min-h-28 rounded-xl border border-[var(--border-subtle)] bg-[var(--surface-elevated)] px-3 py-2 text-sm text-[var(--text-primary)] outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.02)] transition-all duration-200 placeholder:text-[var(--text-muted)] focus:border-[var(--accent-primary)] focus:shadow-[var(--shadow-glow-soft)] focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]",
       props.className
     )}
   />

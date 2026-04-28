@@ -12,7 +12,7 @@ export function ThemeToggle({
 }) {
   const { theme, isSystemPreference, toggleTheme, setTheme } = useTheme();
   const activeClass =
-    "bg-[var(--surface-secondary)] text-[var(--text-primary)] ring-[var(--border-strong)] shadow-[var(--shadow-soft)]";
+    "bg-[var(--surface-secondary)] text-[var(--text-primary)] ring-[var(--border-strong)] shadow-[var(--shadow-glow-soft)]";
 
   return (
     <div className={cn("flex items-center gap-2", className)}>

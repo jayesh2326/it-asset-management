@@ -35,7 +35,7 @@ function getSystemTheme(): ThemeMode {
 function applyTheme(theme: ThemeMode) {
   const root = document.documentElement;
   root.dataset.theme = theme;
-  root.style.colorScheme = theme;
+  root.style.colorScheme = "dark";
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
