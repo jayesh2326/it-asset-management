@@ -19,7 +19,7 @@ type LoginValues = {
 
 export function LoginPage() {
   const navigate = useNavigate();
-  const { initialized, profile, signIn } = useAuth();
+  const { initialized, mode, profile, signIn } = useAuth();
   const toast = useToast();
   const {
     register,
@@ -94,10 +94,28 @@ export function LoginPage() {
           </p>
 
           <div className="mt-6 rounded-3xl border border-[var(--border-subtle)] bg-[var(--surface-emphasis)] p-4 text-sm text-[var(--text-secondary)]">
-            <p className="font-semibold">No demo mode</p>
-            <p className="mt-2">
-              Sign in with your Supabase account, or <Link className="font-semibold underline" to="/signup">create an account</Link>.
-            </p>
+            {mode === "demo" ? (
+              <>
+                <p className="font-semibold">Demo mode is enabled</p>
+                <p className="mt-2">
+                  Use <strong>admin@company.com</strong> / <strong>password123</strong> or{" "}
+                  <strong>it@company.com</strong> / <strong>password123</strong>, or{" "}
+                  <Link className="font-semibold underline" to="/signup">
+                    create a local demo account
+                  </Link>.
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="font-semibold">Supabase mode</p>
+                <p className="mt-2">
+                  Sign in with your Supabase account, or{" "}
+                  <Link className="font-semibold underline" to="/signup">
+                    create an account
+                  </Link>.
+                </p>
+              </>
+            )}
           </div>
 
           <form

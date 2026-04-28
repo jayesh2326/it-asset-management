@@ -10,6 +10,7 @@ const error = vi.fn();
 
 vi.mock("../../hooks/use-auth", () => ({
   useAuth: () => ({
+    mode: "demo",
     initialized: true,
     profile: null,
     signIn
@@ -33,7 +34,7 @@ describe("LoginPage", () => {
       </ThemeProvider>
     );
 
-    expect(screen.getByText("No demo mode")).toBeInTheDocument();
-    expect(screen.getByText(/create an account/i)).toBeInTheDocument();
+    expect(screen.getByText("Demo mode is enabled")).toBeInTheDocument();
+    expect(screen.getByText(/create a local demo account/i)).toBeInTheDocument();
   });
 });

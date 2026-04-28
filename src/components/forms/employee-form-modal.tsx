@@ -3,23 +3,26 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { EmployeeInput } from "../../types/app";
 import { employeeSchema } from "../../lib/validations";
+import { createEmployeeCode } from "../../lib/utils";
 import { Button } from "../common/button";
 import { Field, Input, Select, Textarea } from "../common/fields";
 import { Modal } from "../common/modal";
 
 type EmployeeFormValues = EmployeeInput;
 
-const defaults: EmployeeFormValues = {
-  employee_code: "",
-  full_name: "",
-  email: "",
-  department: "",
-  designation: "",
-  location: "",
-  phone: "",
-  status: "active",
-  notes: ""
-};
+function createDefaults(): EmployeeFormValues {
+  return {
+    employee_code: createEmployeeCode(),
+    full_name: "",
+    email: "",
+    department: "",
+    designation: "",
+    location: "",
+    phone: "",
+    status: "active",
+    notes: ""
+  };
+}
 
 export function EmployeeFormModal({
   open,
@@ -38,14 +41,15 @@ export function EmployeeFormModal({
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors, isSubmitting }
   } = useForm<EmployeeFormValues>({
     resolver: zodResolver(employeeSchema),
-    defaultValues: initialValues ?? defaults
+    defaultValues: initialValues ?? createDefaults()
   });
 
   useEffect(() => {
-    reset(initialValues ?? defaults);
+    reset(initialValues ?? createDefaults());
   }, [initialValues, reset, open]);
 
   return (
@@ -65,6 +69,18 @@ export function EmployeeFormModal({
         <Field label="Employee Code" error={errors.employee_code?.message}>
           <Input {...register("employee_code")} placeholder="EMP-1015" />
         </Field>
+        <div className="flex items-end">
+          <Button
+            type="button"
+            variant="ghost"
+            className="w-full"
+            onClick={() =>
+              setValue("employee_code", createEmployeeCode(), { shouldDirty: true })
+            }
+          >
+            Generate Code
+          </Button>
+        </div>
         <Field label="Full Name" error={errors.full_name?.message}>
           <Input {...register("full_name")} placeholder="Jamie Ortiz" />
         </Field>

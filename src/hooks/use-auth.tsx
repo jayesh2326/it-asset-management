@@ -6,8 +6,15 @@ import {
   useState,
   type ReactNode
 } from "react";
+import {
+  getDemoSessionProfile,
+  signInDemo,
+  signOutDemo,
+  signUpDemo
+} from "../lib/demo-db";
+import { appMode } from "../lib/env";
 import { supabase } from "../lib/supabase";
-import type { LoginInput, Profile } from "../types/app";
+import type { AppMode, LoginInput, Profile } from "../types/app";
 
 interface SignupInput extends LoginInput {
   full_name: string;
@@ -18,6 +25,7 @@ interface SignUpResult {
 }
 
 interface AuthContextValue {
+  mode: AppMode;
   initialized: boolean;
   profile: Profile | null;
   signIn: (input: LoginInput) => Promise<void>;
@@ -58,6 +66,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     let isMounted = true;
 
     async function bootstrap() {
+      if (appMode === "demo") {
+        if (isMounted) {
+          setProfile(getDemoSessionProfile());
+          setInitialized(true);
+        }
+        return;
+      }
+
       if (!supabase) {
         setInitialized(true);
         return;
@@ -77,6 +93,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
 
     bootstrap();
+
+    if (appMode === "demo") {
+      return () => {
+        isMounted = false;
+      };
+    }
 
     const subscription = supabase?.auth.onAuthStateChange(async (_event, session) => {
       if (!isMounted) {
@@ -98,9 +120,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const value = useMemo<AuthContextValue>(
     () => ({
+      mode: appMode,
       initialized,
       profile,
       signIn: async (input) => {
+        if (appMode === "demo") {
+          const nextProfile = await signInDemo(input);
+          setProfile(nextProfile);
+          return;
+        }
+
         if (!supabase) {
           throw new Error("Supabase is not configured.");
         }
@@ -113,6 +142,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setProfile(await fetchSupabaseProfile());
       },
       signUp: async (input) => {
+        if (appMode === "demo") {
+          const nextProfile = await signUpDemo(input);
+          setProfile(nextProfile);
+          return {
+            requiresEmailConfirmation: false
+          };
+        }
+
         if (!supabase) {
           throw new Error("Supabase is not configured.");
         }
@@ -140,6 +177,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         };
       },
       signOut: async () => {
+        if (appMode === "demo") {
+          await signOutDemo();
+          setProfile(null);
+          return;
+        }
+
         if (!supabase) {
           throw new Error("Supabase is not configured.");
         }
@@ -148,6 +191,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         setProfile(null);
       },
       refreshProfile: async () => {
+        if (appMode === "demo") {
+          setProfile(getDemoSessionProfile());
+          return;
+        }
+
         setProfile(await fetchSupabaseProfile());
       }
     }),

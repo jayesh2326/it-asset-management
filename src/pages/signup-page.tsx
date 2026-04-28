@@ -20,7 +20,7 @@ type SignupValues = {
 
 export function SignupPage() {
   const navigate = useNavigate();
-  const { initialized, profile, signUp } = useAuth();
+  const { initialized, mode, profile, signUp } = useAuth();
   const toast = useToast();
 
   const {
@@ -78,7 +78,9 @@ export function SignupPage() {
           <p className="text-sm uppercase tracking-[0.22em] text-[var(--text-muted)]">Create account</p>
           <h2 className="mt-3 text-3xl font-semibold">Join the IT asset manager</h2>
           <p className="mt-2 text-sm text-[var(--text-muted)]">
-            Use a real Supabase account to get started. Password must be at least 6 characters.
+            {mode === "demo"
+              ? "Create a local demo user and start working immediately. Password must be at least 6 characters."
+              : "Use a real Supabase account to get started. Password must be at least 6 characters."}
           </p>
 
           <form

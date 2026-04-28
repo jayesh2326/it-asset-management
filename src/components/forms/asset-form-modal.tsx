@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { assetCategories, assetConditions, assetStatuses, type AssetInput } from "../../types/app";
 import { assetSchema } from "../../lib/validations";
+import { createAssetTag, createSerialNumber } from "../../lib/utils";
 import { Button } from "../common/button";
 import { Field, Input, Select, Textarea } from "../common/fields";
 import { Modal } from "../common/modal";
@@ -22,20 +23,22 @@ type AssetFormValues = {
   notes: string;
 };
 
-const defaults: AssetFormValues = {
-  asset_tag: "",
-  name: "",
-  category: "Laptop",
-  brand: "",
-  model: "",
-  serial_number: "",
-  purchase_date: "",
-  warranty_expiry: "",
-  location: "",
-  condition: "good",
-  status: "in_stock",
-  notes: ""
-};
+function createDefaults(category = "Laptop", brand = ""): AssetFormValues {
+  return {
+    asset_tag: createAssetTag(category),
+    name: "",
+    category,
+    brand,
+    model: "",
+    serial_number: createSerialNumber(brand),
+    purchase_date: "",
+    warranty_expiry: "",
+    location: "",
+    condition: "good",
+    status: "in_stock",
+    notes: ""
+  };
+}
 
 export function AssetFormModal({
   open,
@@ -54,6 +57,8 @@ export function AssetFormModal({
     register,
     handleSubmit,
     reset,
+    setValue,
+    watch,
     formState: { errors, isSubmitting }
   } = useForm<AssetFormValues>({
     resolver: zodResolver(assetSchema),
@@ -63,7 +68,7 @@ export function AssetFormModal({
           purchase_date: initialValues.purchase_date ?? "",
           warranty_expiry: initialValues.warranty_expiry ?? ""
         }
-      : defaults
+      : createDefaults()
   });
 
   useEffect(() => {
@@ -74,9 +79,12 @@ export function AssetFormModal({
             purchase_date: initialValues.purchase_date ?? "",
             warranty_expiry: initialValues.warranty_expiry ?? ""
           }
-        : defaults
+        : createDefaults()
     );
   }, [initialValues, reset, open]);
+
+  const category = watch("category");
+  const brand = watch("brand");
 
   return (
     <Modal
@@ -99,6 +107,16 @@ export function AssetFormModal({
         <Field label="Asset Tag" error={errors.asset_tag?.message}>
           <Input {...register("asset_tag")} placeholder="LAP-1009" />
         </Field>
+        <div className="flex items-end">
+          <Button
+            type="button"
+            variant="ghost"
+            className="w-full"
+            onClick={() => setValue("asset_tag", createAssetTag(category), { shouldDirty: true })}
+          >
+            Generate Tag
+          </Button>
+        </div>
         <Field label="Asset Name" error={errors.name?.message}>
           <Input {...register("name")} placeholder="ThinkPad T14" />
         </Field>
@@ -120,6 +138,18 @@ export function AssetFormModal({
         <Field label="Serial Number" error={errors.serial_number?.message}>
           <Input {...register("serial_number")} placeholder="LNV-1008" />
         </Field>
+        <div className="flex items-end">
+          <Button
+            type="button"
+            variant="ghost"
+            className="w-full"
+            onClick={() =>
+              setValue("serial_number", createSerialNumber(brand), { shouldDirty: true })
+            }
+          >
+            Generate Serial
+          </Button>
+        </div>
         <Field label="Purchase Date" error={errors.purchase_date?.message}>
           <Input type="date" {...register("purchase_date")} />
         </Field>

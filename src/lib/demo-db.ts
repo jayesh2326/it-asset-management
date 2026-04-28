@@ -500,6 +500,32 @@ export async function signInDemo(input: LoginInput) {
   return profileWithoutPassword(profile);
 }
 
+export async function signUpDemo(input: LoginInput & { full_name: string }) {
+  const state = readState();
+  const email = input.email.trim().toLowerCase();
+  const fullName = input.full_name.trim();
+
+  if (state.profiles.some((item) => item.email.toLowerCase() === email)) {
+    throw new Error("A demo user with this email already exists.");
+  }
+
+  const profile: DemoProfileRecord = {
+    id: createId("profile"),
+    email,
+    full_name: fullName,
+    role: "it_staff",
+    active: true,
+    created_at: nowIso(),
+    password: input.password
+  };
+
+  state.profiles.unshift(profile);
+  writeState(state);
+  setCurrentSessionProfileId(profile.id);
+
+  return profileWithoutPassword(profile);
+}
+
 export async function signOutDemo() {
   setCurrentSessionProfileId(null);
 }

@@ -7,6 +7,35 @@ export function createId(prefix: string) {
   return `${prefix}_${random}`;
 }
 
+function createNumericSuffix(length = 4) {
+  const base = `${Date.now()}${Math.floor(Math.random() * 1000)}`;
+  return base.slice(-length).padStart(length, "0");
+}
+
+export function createEmployeeCode() {
+  return `EMP-${createNumericSuffix(4)}`;
+}
+
+export function createAssetTag(category: string) {
+  const prefixMap: Record<string, string> = {
+    Laptop: "LAP",
+    Desktop: "DSK",
+    Monitor: "MON",
+    Phone: "PHN",
+    Tablet: "TAB",
+    Printer: "PRN",
+    Accessory: "ACC",
+    Network: "NET"
+  };
+
+  return `${prefixMap[category] ?? "AST"}-${createNumericSuffix(4)}`;
+}
+
+export function createSerialNumber(brand = "AST") {
+  const brandPrefix = brand.replace(/[^a-z0-9]/gi, "").toUpperCase().slice(0, 3) || "AST";
+  return `${brandPrefix}-${createNumericSuffix(6)}`;
+}
+
 export function nowIso() {
   return new Date().toISOString();
 }

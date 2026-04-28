@@ -1,4 +1,6 @@
 import { buildDashboardSummary } from "./metrics";
+import { createDemoRepository } from "./demo-db";
+import { appMode } from "./env";
 import { supabase } from "./supabase";
 import type { Repository } from "./repository";
 import type {
@@ -587,5 +589,7 @@ function createSupabaseRepository(currentProfile: Profile | null): Repository {
 }
 
 export function createRepository(currentProfile: Profile | null): Repository {
-  return createSupabaseRepository(currentProfile);
+  return appMode === "demo"
+    ? createDemoRepository(currentProfile)
+    : createSupabaseRepository(currentProfile);
 }
