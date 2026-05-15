@@ -216,54 +216,28 @@ export function DashboardPage() {
           </div>
 
           <div className="rounded-[28px] border border-white/10 bg-[#0f0f0f]/95 p-6 shadow-[0_24px_48px_rgba(0,0,0,0.30)] ring-1 ring-inset ring-white/[0.04]">
-            <div className="flex items-center justify-between gap-4">
+            <p className="text-sm uppercase tracking-[0.28em] text-[#9CA3AF]">Total assets</p>
+            <div className="mt-4 flex items-center justify-between gap-4">
               <div>
-                <p className="text-sm uppercase tracking-[0.28em] text-[#9CA3AF]">Total assets</p>
-                <p className="mt-3 text-5xl font-semibold text-white">{analytics.summary.totals.assets}</p>
+                <p className="text-5xl font-semibold text-white">{analytics.summary.totals.assets}</p>
+                <p className="mt-2 text-sm text-[#9CA3AF]">Monitored inventory across your environment.</p>
               </div>
               <div className="rounded-full bg-[#121212] px-4 py-2 text-right text-sm text-[#D1D5DB]">
                 <span className="block text-[#36c98c]">{growthPercent >= 0 ? `+${growthPercent}%` : `${growthPercent}%`}</span>
                 <span className="block text-[#9CA3AF]">vs previous 90 days</span>
               </div>
             </div>
-          </div>
 
-          <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#121212]/95 p-6 shadow-[0_24px_60px_rgba(0,0,0,0.35)] ring-1 ring-inset ring-white/[0.04]">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_35%)]" />
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-[linear-gradient(180deg,rgba(229,9,20,0.16),transparent)]" />
-            <div className="pointer-events-none absolute left-10 top-10 h-14 w-14 rounded-full bg-[#E50914]/14 blur-2xl" />
-            <div className="relative flex h-full flex-col justify-between gap-6">
-              <div>
-                <p className="text-xs uppercase tracking-[0.24em] text-[#9CA3AF]">Live infrastructure</p>
-                <h2 className="mt-4 text-2xl font-semibold text-white">Global network topology</h2>
-                <p className="mt-3 text-sm leading-6 text-[#9CA3AF]">Animated service mesh with redline telemetry and risk overlays.</p>
+            <div className="mt-6 grid gap-4">
+              <div className="rounded-[22px] border border-white/10 bg-[#111111]/95 p-5 shadow-[0_16px_40px_rgba(0,0,0,0.24)] ring-1 ring-inset ring-white/[0.03]">
+                <p className="text-xs uppercase tracking-[0.24em] text-[#9CA3AF]">Alert status</p>
+                <p className="mt-3 text-2xl font-semibold text-white">{alertsCount} active</p>
+                <p className="mt-2 text-sm text-[#9CA3AF]">Issues requiring attention right now.</p>
               </div>
-              <div className="relative h-80 overflow-hidden rounded-[24px] border border-white/10 bg-[#090909]/90">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(229,9,20,0.20),transparent_25%)]" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.04),transparent_30%)]" />
-                {[...Array(8)].map((_, index) => (
-                  <div
-                    key={index}
-                    className={`absolute rounded-full bg-white/10 ${index % 2 === 0 ? "h-2 w-2" : "h-3 w-3"}`}
-                    style={{ left: `${10 + index * 11}%`, top: `${12 + (index % 3) * 18}%` }}
-                  />
-                ))}
-                {[
-                  { left: 8, top: 18 },
-                  { left: 22, top: 34 },
-                  { left: 47, top: 22 },
-                  { left: 68, top: 14 },
-                  { left: 81, top: 38 }
-                ].map((node, index) => (
-                  <div
-                    key={index}
-                    className="absolute flex h-5 w-5 items-center justify-center rounded-full border border-[#FF4A57]/25 bg-[#FF4A57]/20 shadow-[0_0_22px_rgba(255,77,87,0.22)]"
-                    style={{ left: `${node.left}%`, top: `${node.top}%` }}
-                  >
-                    <div className="h-2.5 w-2.5 rounded-full bg-white" />
-                  </div>
-                ))}
-                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(45deg,transparent_30%,rgba(255,255,255,0.02)_35%,transparent_40%)]" />
+              <div className="rounded-[22px] border border-white/10 bg-[#111111]/95 p-5 shadow-[0_16px_40px_rgba(0,0,0,0.24)] ring-1 ring-inset ring-white/[0.03]">
+                <p className="text-xs uppercase tracking-[0.24em] text-[#9CA3AF]">Service health</p>
+                <p className="mt-3 text-2xl font-semibold text-white">{serviceHealth}%</p>
+                <p className="mt-2 text-sm text-[#9CA3AF]">Live service readiness score.</p>
               </div>
             </div>
           </div>
